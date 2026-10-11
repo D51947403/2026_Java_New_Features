@@ -33,6 +33,20 @@ Core Concepts
 - Join: Blocks and waits until the subtask finishes execution, then retrieves its result.
 - Work-Stealing Algorithm: Idle threads in the pool actively "steal" tasks from the queues of busy threads to maximize CPU efficiency
 
+### TransferQueue 
+In Java, a TransferQueue is a specialized type of BlockingQueue where a producer thread can explicitly wait for a consumer thread to receive its element. This provides a form of message-passing back-pressure.
+The primary implementation of this interface is LinkedTransferQueue.
+
+Core Handoff Methods
+
+- transfer(E e): Transfers the element to a waiting consumer immediately. 
+  If no consumer is waiting, the producer thread blocks until a consumer invokes take() or poll().
+- tryTransfer(E e): Attempts to hand off the element immediately without blocking.
+  It returns true if a consumer was waiting, or false if it would have to block.
+- put(E e) / add(E e): Standard queue operations inherited from BlockingQueue. 
+  These insert the element into the queue without waiting for a consumer to physically pull it.
+- https://www.geeksforgeeks.org/java/transferqueue-interface-in-java/
+
 ### Reference 
 - https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html
 
