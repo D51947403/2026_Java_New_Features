@@ -29,9 +29,9 @@
 ### Fork/Join framework
 The Java Fork/Join framework, introduced in Java 7, is designed to speed up parallel processing by utilizing all available processor cores. It breaks a large task down into smaller, manageable subtasks (Forking) and then combines their results (Joining). This approach follows a parallel divide-and-conquer strategy.
 Core Concepts
-• Fork: Asynchronously splits a large task into smaller independent subtasks that run concurrently.
-• Join: Blocks and waits until the subtask finishes execution, then retrieves its result.
-• Work-Stealing Algorithm: Idle threads in the pool actively "steal" tasks from the queues of busy threads to maximize CPU efficiency
+- Fork: Asynchronously splits a large task into smaller independent subtasks that run concurrently.
+- Join: Blocks and waits until the subtask finishes execution, then retrieves its result.
+- Work-Stealing Algorithm: Idle threads in the pool actively "steal" tasks from the queues of busy threads to maximize CPU efficiency
 
 ### Reference 
 - https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html
