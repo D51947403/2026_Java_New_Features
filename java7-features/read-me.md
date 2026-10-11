@@ -47,6 +47,19 @@ Core Handoff Methods
   These insert the element into the queue without waiting for a consumer to physically pull it.
 - https://www.geeksforgeeks.org/java/transferqueue-interface-in-java/
 
+### Concurrent Linked double-ended queue
+In Java, a concurrent linked double-ended queue is implemented by the java.util.concurrent.ConcurrentLinkedDeque class. 
+It is an unbounded, thread-safe, and lock-free implementation based on linked nodes, which allows multiple threads to safely insert,
+remove, and access elements from both ends concurrently without blocking.
+
+Key Characteristics
+
+- Lock-Free Mechanics: It relies on high-performance, non-blocking algorithms using Compare-And-Swap (CAS) instructions.
+- No Null Elements: It strictly forbids inserting null values.
+- Linear Time Size: The size() method is not a constant-time operation (O(1)). 
+  It requires traversing the entire deque to count elements because the size can dynamically change across threads.
+- https://www.geeksforgeeks.org/java/concurrentlinkeddeque-in-java-with-examples/
+
 ### Reference 
 - https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html
 
