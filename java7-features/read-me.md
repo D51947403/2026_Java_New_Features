@@ -1,4 +1,4 @@
-#New Features in Java 7
+# New Features in Java 7
 
 ## Language changes –
 - Strings in Switch statements
