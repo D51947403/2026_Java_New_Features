@@ -60,6 +60,24 @@ Key Characteristics
   It requires traversing the entire deque to count elements because the size can dynamically change across threads.
 - https://www.geeksforgeeks.org/java/concurrentlinkeddeque-in-java-with-examples/
 
+#### G1 (Garbage-First) Garbage Collector 
+The G1 (Garbage-First) Garbage Collector is a generational, region-based garbage collector designed for Java applications running on multi-processor machines with large memory space. Introduced fully in Java 7, it became the default garbage collector in JDK 9, replacing the Parallel Garbage Collector
+
+Key Architectural Concepts
+- Region-Based Layout: G1 breaks the Java heap down into approximately 2,000 equal-sized, logically distinct memory regions, 
+  varying from 1 MB to 32 MB (always a power of two)
+- Dynamic Role Assignment: Regions are not physically fixed; instead, they are dynamically assigned to act as part of the 
+ Young or Old generations as the application runs:
+ • Eden (E): Where newly created objects are initially allocated.
+ • Survivor (S): Houses objects that survived a Young collection cycle.
+ • Old (O): Holds long-lived objects promoted from Survivor regions.
+ • Humongous (H): A specialized region dedicated to individual, massive objects that exceed 50% of a standard region's size.
+- Remembered Sets (RSets): G1 utilizes specialized tracking mechanisms called Remembered Sets. 
+  They keep record of cross-region object references (e.g., when an object in an Old region references an object in a Young region).
+  This allows G1 to inspect individual regions for dead objects without scanning the entire heap
+- https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html
+- https://www.dynatrace.com/news/blog/understanding-g1-garbage-collector-java-9/
+
 ### Reference 
 - https://www.oracle.com/java/technologies/javase/jdk7-relnotes.html
 
