@@ -5,6 +5,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/***
+ * java.util.concurrent.ThreadLocalRandom is a high-performance utility class introduced 
+ * in Java 7 specifically designed to generate random numbers in multi-threaded environments. 
+ * By providing a random number generator isolated to each thread, 
+ * it drastically reduces contention and overhead compared to sharing a single java.util.Random instance
+ */
 public class ThreadLocalRandomDemo {
 
 	public static void main(String[] args) {
